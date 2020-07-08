@@ -1,0 +1,63 @@
+.search{
+    padding: 0 0 0 10px;
+    border:1px solid #e8e8e8;
+    border-radius: 3px;
+}
+
+.search input{
+    border:none;
+    font-size:14px;
+    width:260px !important;
+    border:none !important;
+}
+
+.search input:focus{
+    box-shadow:0 0 0 #ddd;
+}
+
+.signup-form,
+.login-form{
+    min-width:400px;
+    width:600px;
+    text-align: center;
+    margin: 0px auto;
+}
+
+.signup-form form,
+.login-form form{
+    border-radius: 10px;
+    border:1px solid #e8e8e8;
+    padding: 20px 180px;
+    margin-top:80px;
+    background-color: #da707a;
+}
+
+.signup-form form input,
+.login-form form input{
+    width:100%;
+    padding:8px;
+    border-radius: 4px;
+    border:0px solid lightgrey;
+}
+
+@media (max-width:376px){
+
+    .search input{
+        font-size:12px;
+        width:200px !important;
+    }
+
+    .signup-form,
+    .login-form{
+        min-width:240px;
+        width:300px;
+        text-align: center;
+        margin: 0px auto;
+    }
+
+    .signup-form form,
+    .login-form form{
+        padding: 20px 40px;
+    }
+}
+

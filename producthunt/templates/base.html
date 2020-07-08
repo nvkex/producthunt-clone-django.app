@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% load staticfiles %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel = "stylesheet" href = "{% static 'baseclass.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Product Hunt</title>
+  </head>
+  <body class = "bg-light">
+    
+      <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+      <div class = "container">
+        <a class="navbar-brand" href="{% url 'home' %}">
+          <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M40 20c0 11.046-8.954 20-20 20S0 31.046 0 20 8.954 0 20 0s20 8.954 20 20" fill="#DA552F"></path><path d="M22.667 20H17v-6h5.667a3 3 0 0 1 0 6m0-10H13v20h4v-6h5.667a7 7 0 1 0 0-14" fill="#FFF"></path></g></svg>
+        </a>
+        <form class="form-inline my-2 my-lg-0">
+          <div class = "search">
+            <span class="searchIcon_11e88"><svg width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg"><path d="M9.383 10.347a5.796 5.796 0 1 1 .965-.964L15 14.036l-.964.964-4.653-4.653zm-3.588-.12a4.432 4.432 0 1 0 0-8.863 4.432 4.432 0 0 0 0 8.863z" fill="#BBB" fill-rule="evenodd"></path></svg></span>
+            <input class="form-control mr-sm-2" type="search" placeholder="Discover your next favorite thing..." aria-label="Search">
+          </div>
+        </form>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Deals</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Jobs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Makers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Ship</a>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav navbar-right">
+
+            {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link"><button id = "logoutBtn" class = "btn btn-sm btn-outline-info px-3">Logout</button></a>
+                <form id="logout" method = "POST" action = "{% url 'logout' %}"> 
+                  {% csrf_token %}
+                  <input type = "hidden">
+                </form>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}"><button class = "btn btn-sm btn-outline-secondary px-3">Login</button></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'signup' %}"><button class = "btn btn-sm btn-danger">Sign Up</button></a>
+              </li>
+            {% endif %}
+            
+          </ul>
+          
+        </div>
+      </div>
+      </nav>
+
+    
+    <div class = "container">
+      {% block content %}
+        
+      {% endblock content %}
+
+    </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script>
+      document.querySelector('#logoutBtn').addEventListener('click', () =>{
+        document.getElementById('logout').submit();
+      })
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>

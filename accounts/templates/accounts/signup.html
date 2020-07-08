@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if error %}
+        {{ error }}
+        <br>
+    {% endif %}
+
+    <div class = "signup-form">
+        <form class = "shadow-lg" method = "POST" action = "{% url 'signup' %}"> {% csrf_token %}
+            <h1 class = "display-4 text-white">Sign Up</h1><br>
+            <input type="text" class = "" placeholder = "Username" name = "username" required><br><br>
+            {% comment %} <input type="email" class = "" placeholder = "E-mail" name = "email" required><br><br> {% endcomment %}
+            <input type="password" class = "" placeholder = "Password" name = "pass" required><br><br>
+            <input type="password" class = "" placeholder = "Confirm Password" name = "cnfpass" required><br><br>
+            <button class = "btn btn-dark">Sign Up</button>
+        </form>
+    </div>
+
+{% endblock content %}
