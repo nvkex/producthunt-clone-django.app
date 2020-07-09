@@ -15,6 +15,7 @@
     box-shadow:0 0 0 #ddd;
 }
 
+.create-form,
 .signup-form,
 .login-form{
     min-width:400px;
@@ -23,6 +24,12 @@
     margin: 0px auto;
 }
 
+.create-form{
+    text-align:left;
+    width:800px;
+}
+
+.create-form form,
 .signup-form form,
 .login-form form{
     border-radius: 10px;
@@ -32,12 +39,25 @@
     background-color: #da707a;
 }
 
+.create-form form{
+    margin-top:20px;
+    padding: 20px 100px;
+    background-color: white;
+}
+
+.create-form form input,
+.create-form form textarea,
 .signup-form form input,
 .login-form form input{
     width:100%;
     padding:8px;
     border-radius: 4px;
     border:0px solid lightgrey;
+}
+
+.create-form form input[type="text"],
+.create-form form textarea{
+    border:1px solid lightgrey;
 }
 
 @media (max-width:376px){
@@ -47,6 +67,7 @@
         width:200px !important;
     }
 
+    .create-form,
     .signup-form,
     .login-form{
         min-width:240px;
@@ -55,6 +76,7 @@
         margin: 0px auto;
     }
 
+    .create-form form,
     .signup-form form,
     .login-form form{
         padding: 20px 40px;

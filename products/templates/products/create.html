@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if error %}
+        {{ error }}
+    {% endif %}
+
+    <div class = "create-form">
+        <form class = "shadow-lg" method = "POST" action = "{% url 'create' %}" enctype = "multipart/form-data"> 
+            {% csrf_token %}
+            <h1 class = "display-4 text-center text-dark">Add Product</h1><br>
+            <input type="text" class = "" placeholder = "Title" name = "title" required><br><br>
+            <textarea rows = "4" cols = "80" class = "" placeholder = "Body" name = "body"></textarea><br><br>
+            <input type="text" class = "" placeholder = "URL" name = "url" required><br><br>
+            <label>Icon:</label><input type="file" class = "" name = "icon"required><br>
+            <label>Image:</label><input type="file" class = "" name = "image" required><br><br>
+            <button class = " mx-auto btn btn-dark mx-auto" type = "submit">Create</button>
+        </form>
+    </div>
+
+{% endblock content %}
