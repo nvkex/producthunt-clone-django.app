@@ -1,3 +1,29 @@
+@media (max-width:400px){
+
+    .search input{
+        font-size:12px;
+        width:200px !important;
+    }
+
+    .create-form,
+    .signup-form,
+    .login-form{
+        min-width:100px;
+        width:100px;
+        margin: 0px auto;
+    }
+
+    .create-form form,
+    .signup-form form,
+    .login-form form{
+        padding: 20px 40px;
+    }
+
+    .product-info{
+        font-size:12px;
+    }
+}
+
 .search{
     padding: 0 0 0 10px;
     border:1px solid #e8e8e8;
@@ -60,26 +86,33 @@
     border:1px solid lightgrey;
 }
 
-@media (max-width:376px){
 
-    .search input{
-        font-size:12px;
-        width:200px !important;
-    }
-
-    .create-form,
-    .signup-form,
-    .login-form{
-        min-width:240px;
-        width:300px;
-        text-align: center;
-        margin: 0px auto;
-    }
-
-    .create-form form,
-    .signup-form form,
-    .login-form form{
-        padding: 20px 40px;
-    }
+.header-row{
+    margin: 10px;
 }
 
+.header-row div a{
+    color:black;
+}
+
+.header-row div img{
+    max-width:100px;
+}
+
+.product-body{
+    background-color: white;
+}
+
+a#upvoteIcon{
+    cursor:pointer;
+    text-decoration: none;
+    color: #cc4d29 !important;
+}
+
+a#upvoteIcon:hover{
+    color: #94381e !important;
+}
+
+.product-list .row:hover{
+    background-color: #f3f3f3;
+}

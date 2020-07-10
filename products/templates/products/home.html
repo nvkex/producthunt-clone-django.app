@@ -1,5 +1,37 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <div class = "product-list my-4 shadow-sm pt-4 px-4 bg-white">
     
+    {% for product in products.all %}
+
+        <div class = "row p-2 rounded" onclick = "window.location = '{% url 'detail' product.id %}';" style = "cursor:pointer;">
+            <div class = "col-2">
+                <img src = "{{ product.icon.url }}" class = "img-fluid" style = "max-height:100px"/>
+            </div>
+            <div class = "col-9">
+                <h4>{{ product.title }}</h4>
+                <small>{{ product.summary }}</small>
+            </div>
+            <div class = "col-1 text-center">
+                <div class = "">
+                <a href="javascript:{document.getElementById('upvote{{ product.id }}').submit()}">
+                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-arrow-up-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 8.354a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 6.207V11a.5.5 0 0 1-1 0V6.207L5.354 8.354z"/>
+                    </svg>
+                
+                </a><br>
+                &nbsp;<small style="font-size:20px">{{ product.votes_total }}</small>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <form id="upvote{{ product.id }}" method="POST" action="{% url 'upvote' product.id %}">
+            {% csrf_token %}
+            <input type = "hidden">
+        </form>
+    {% endfor %}
+        <br>
+    </div>
+
 {% endblock %}
